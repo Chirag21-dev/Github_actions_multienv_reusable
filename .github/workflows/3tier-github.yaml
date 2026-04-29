@@ -6,7 +6,14 @@ on:
     paths:
       - client/**
       - server/**
-      - .github/workflows/qa-cicd.yml
+      - .github/workflows/3tier-github.yml
 permissions:
   contents: write
   id-token: write
+jobs:
+  gitleaks-scan:
+    name: Gitleaks Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
