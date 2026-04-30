@@ -4,8 +4,8 @@ on:
 
 jobs:
   Plan_Dev:
-    if: github.ref == 'refs/heads/FeatureBranch1'
-    uses: RekhuGopal/gitreusableflows/.github/workflows/tf_apply.yml@main
+    if: github.ref == 'refs/heads/dev'
+    uses: Chirag21-dev/Github_actions_multienv_reusable/.github/workflows/tf_apply.yml@dev
     with:
       path: IAMRoles
       tf_vars_file: dev.tfvars
@@ -15,7 +15,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: RekhuGopal/gitreusableflows/.github/workflows/tf_appy.yml@main
+    uses: Chirag21-dev/Github_actions_multienv_reusable/.github/workflows/tf_apply.yml@dev
     with:
       path: IAMRoles
       tf_vars_file: dev.tfvars
